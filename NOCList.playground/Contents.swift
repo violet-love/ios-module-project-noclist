@@ -36,39 +36,50 @@ let eugeneKittridge = (coverName: "Eugene Kittridge", realName: "Henry Czerny", 
 let franzKrieger = (coverName: "Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
 let lutherStickell = (coverName: "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
 let sarahDavies = (coverName: "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
-let maxRotGrab = (coverName: "Max RotGrab", realName: "Vanessa Redgrave", acessLevel: 4, compromised: false)
+let maxRotGrab = (coverName: "Max RotGrab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
 let hannahWilliams = (coverName: "Hannah Williams", realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
 let jackHarmon = (coverName: "Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
 let frankBarnes = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false)
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-let agents = [ethanHunt, jimPhelps, clairePhelps]
-
-
+let agents = [ethanHunt, jimPhelps, clairePhelps, eugeneKittridge, franzKrieger, lutherStickell, sarahDavies, maxRotGrab, hannahWilliams, jackHarmon, frankBarnes]
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-
-
-
+var compromisedAgents = 0
+func countCompromisedAgents() -> Int {
+    for agent in agents {
+        if agent.compromised == true {
+            compromisedAgents += 1
+        }
+    }
+    return compromisedAgents
+}
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
-
-
+countCompromisedAgents()
+print("\(compromisedAgents) agents have been compromised!")
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
-
-
-
+func findCleanAgents() -> Array<Any> {
+    var uncompromisedAgents: [String] = []
+    for agent in agents {
+        if agent.compromised == false {
+            uncompromisedAgents.append(agent.coverName)
+            print(agent.coverName)
+        }
+    }
+    return uncompromisedAgents
+}
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-
-
-
+findCleanAgents()
+print("6 clean agents out of 11 total agents!")
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-
+func findHighRisk {
+    
+}
 
 
 //: ## Step 8
