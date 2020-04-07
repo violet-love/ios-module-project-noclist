@@ -79,32 +79,45 @@ print("6 clean agents out of 11 total agents!")
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
 func findHighRisk() {
     for agent in agents{
-        switch agents {
-        case agent.accessLevel >= 8:
-            print("\(agent.realName), level:\(agent.accessLevel)")
-        case agent.accessLevel >= 8 && agent.compromised == true:
+        if agent.accessLevel >= 8 && agent.compromised == true {
             print("\(agent.realName), level:\(agent.accessLevel) **WARNIING** **COMPROMISED**")
-        }
+        } else if agent.accessLevel >= 8 {
+             print("\(agent.realName), level:\(agent.accessLevel)")
+}
     }
 }
-
-
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
-
-
+findHighRisk()
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"
-
-
-
+func agentLevels() {
+    var lowLevelAgents = 0
+    var midLevelAgents = 0
+    var highLevelAgents = 0
+    for agent in agents {
+        switch agent.accessLevel {
+        case 0...4:
+            lowLevelAgents += 1
+        case 5...7:
+            midLevelAgents += 1
+        case 8...10:
+            highLevelAgents += 1
+        case 10...:
+            print("Hello, President.")
+        default:
+            print("Shoot on sight")
+        }
+    }
+print("\(highLevelAgents) high level agent(s), \(midLevelAgents) mid level agent(s), \(lowLevelAgents) low level agent(s)")
+}
 //: ## Step 10
 //: Call the above function and check its output in the console.
-
-
-
+agentLevels()
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
-
-
+func sortTheAgents() {
+    for agent in agents{
+        agent.accessLevel
+    }
+}
